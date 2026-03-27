@@ -1,5 +1,14 @@
 # StarRupture Public Test Branch (PTB) Dedicated Server (Docker)
 
+[![Docker Image Build and Push (PTB)](https://github.com/alexandru360/star-rupture-test-server/actions/workflows/docker-image.yml/badge.svg)](https://github.com/alexandru360/star-rupture-test-server/actions/workflows/docker-image.yml)
+[![Docker README Update (PTB)](https://github.com/alexandru360/star-rupture-test-server/actions/workflows/docker-readme.yml/badge.svg)](https://github.com/alexandru360/star-rupture-test-server/actions/workflows/docker-readme.yml)
+
+**Docker Hub:** [`alex360/starrupture-ptb`](https://hub.docker.com/r/alex360/starrupture-ptb)
+
+```
+docker pull alex360/starrupture-ptb:latest
+```
+
 ## Description
 Docker container for hosting a **Public Test Branch (PTB)** dedicated server for [StarRupture](https://starrupture-game.com/).
 Forked from [rhavinx/starrupture](https://github.com/rhavinx/starrupture).
