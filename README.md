@@ -1,8 +1,11 @@
-# StarRupture Dedicated Server (Docker)
+# StarRupture Public Test Branch (PTB) Dedicated Server (Docker)
 
 ## Description
-Docker container for hosting a dedicated server for [StarRupture](https://starrupture-game.com/).
+Docker container for hosting a **Public Test Branch (PTB)** dedicated server for [StarRupture](https://starrupture-game.com/).
+This image downloads the PTB version of the server via SteamCMD using the `-beta public_test_branch` flag.
 Currently the game server requires an internet connection.
+
+> **Note:** This is the PTB/test branch. Save files from PTB are NOT compatible with the main game branch. Back up your saves before switching.
 
 The container has been updated to mitigate a vulnerability in the server manager.
 Accessing the in-game server manager is no longer possible. You will need to create or autoload your save games via `DSSettings.txt`. See [Quick Start](#quick-start-docker) below.
@@ -155,18 +158,20 @@ If you lost the `*Password.json` password files:
 | FORCE_CHANGE_PLAYER  | Force player password update (`PLAYER_PASSWORD` required) | "0" |
 | REMOVE_SERVER_FILES  | Wipe server files to recover from update issues | "0" |
 | BACKUP_SETTINGS      | Backup settings and saved games on shutdown | "1" |
+| BETA_BRANCH          | SteamCMD beta branch name (set empty to use default branch) | "public_test_branch" |
 
 ```yml
 services:
-  starrupture:
-    image: rhavinx/starrupture:latest
-    #image: ghcr.io/rhavinx/starrupture:latest # Alternate location
-    container_name: starrupture
+  starrupture-ptb:
+    image: alex360/starrupture-ptb:latest
+    #image: ghcr.io/alexandru360/starrupture-ptb:latest # Alternate location
+    container_name: starrupture-ptb
     environment:
       TZ: "UTC"
       SKIP_UPDATE: "0"
       ENABLE_LOG: "1"
       GAME_PORT: "7777"
+      BETA_BRANCH: "public_test_branch"
       # ADMIN_PASSWORD: ""
       # PLAYER_PASSWORD: ""
       # FORCE_CHANGE_ADMIN: "0"
@@ -183,6 +188,12 @@ services:
 ```
 
 ## Changelog
+* 27 Mar 2026:
+  - Forked from rhavinx/starrupture for PTB (Public Test Branch) support
+  - Added `BETA_BRANCH` environment variable (default: `public_test_branch`)
+  - SteamCMD now uses `-beta public_test_branch` to download PTB server files
+  - Docker image published as `alex360/starrupture-ptb`
+
 * 14 Feb 2026:
   - Remove old warnings from readme and start.sh
 
