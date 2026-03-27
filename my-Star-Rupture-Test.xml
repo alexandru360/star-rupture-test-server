@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>StarRupture-PTB</Name>
+  <Name>Star-Rupture-PTB</Name>
   <Repository>alex360/starrupture-ptb:latest</Repository>
   <Registry>https://hub.docker.com/r/alex360/starrupture-ptb</Registry>
   <Network>bridge</Network>
