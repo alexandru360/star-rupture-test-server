@@ -3,8 +3,6 @@ name: Docker README Update (PTB)
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'README.md'
   workflow_dispatch:
 
 jobs:
