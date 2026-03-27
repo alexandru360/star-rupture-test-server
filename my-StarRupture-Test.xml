@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>StarRupture-PTB</Name>
+  <Repository>alex360/starrupture-ptb:latest</Repository>
+  <Registry>https://hub.docker.com/r/alex360/starrupture-ptb</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview/>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://bleedingcool.com/wp-content/uploads/2024/03/StarRupture-Main-Art-900x900.jpg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1772362351</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="TZ" Target="TZ" Default="" Mode="" Description="Timezone" Type="Variable" Display="always" Required="false" Mask="false">Europe/Bucharest</Config>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="Numeric user id" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="Numeric group id" Type="Variable" Display="always" Required="false" Mask="false">1000</Config>
+  <Config Name="SKIP_UPDATE" Target="SKIP_UPDATE" Default="" Mode="" Description="Skip updating server files" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="ENABLE_LOG" Target="ENABLE_LOG" Default="" Mode="" Description="Enable server logging" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="GAME_PORT" Target="GAME_PORT" Default="" Mode="" Description="Game port (adjust port mapping if needed)" Type="Variable" Display="always" Required="false" Mask="false">7777</Config>
+  <Config Name="REMOVE_PDB" Target="REMOVE_PDB" Default="1" Mode="" Description="&#9;Remove large debug symbol file (.pdb &amp;gt; 2GB)" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="ADMIN_PASSWORD" Target="ADMIN_PASSWORD" Default="hubdex" Mode="" Description="Admin/server manager password (first run, or when forced)" Type="Variable" Display="always" Required="false" Mask="false">hubdex</Config>
+  <Config Name="PLAYER_PASSWORD" Target="PLAYER_PASSWORD" Default="hubdex" Mode="" Description="Player join password (first run, or when forced)" Type="Variable" Display="always" Required="false" Mask="false">hubdex</Config>
+  <Config Name="FORCE_CHANGE_ADMIN" Target="FORCE_CHANGE_ADMIN" Default="0" Mode="" Description="Force admin password update (ADMIN_PASSWORD required)" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="FORCE_CHANGE_PLAYER" Target="FORCE_CHANGE_PLAYER" Default="0" Mode="" Description="Force player password update (PLAYER_PASSWORD required)" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="REMOVE_SERVER_FILES" Target="REMOVE_SERVER_FILES" Default="" Mode="" Description="Wipe server files to recover from update issues" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="BACKUP_SETTINGS" Target="BACKUP_SETTINGS" Default="1" Mode="" Description="Backup DSSettings.txt, Password.json, PlayerPassword.json on shutdown" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="BETA_BRANCH" Target="BETA_BRANCH" Default="public_test_branch" Mode="" Description="SteamCMD beta branch name (set empty to use default branch)" Type="Variable" Display="always" Required="false" Mask="false">public_test_branch</Config>
+  <Config Name="/home/steam/starrupture/server" Target="/home/steam/starrupture/server" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/starrupture-moded/server</Config>
+  <Config Name="/home/steam/starrupture/data" Target="/home/steam/starrupture/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/starrupture-moded/data</Config>
+  <Config Name="Port_UDP" Target="7777" Default="7777" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false">7777</Config>
+
+  <TailscaleStateDir/>
+</Container>

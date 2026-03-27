@@ -13,6 +13,31 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.2
 
+      - name: Create Docker Hub repo if it does not exist
+        run: |
+          TOKEN=$(curl -s -H "Content-Type: application/json" \
+            -X POST https://hub.docker.com/v2/users/login/ \
+            -d "{\"username\":\"$DOCKERHUB_USERNAME\",\"password\":\"$DOCKERHUB_TOKEN\"}" \
+            | jq -r .token)
+
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: JWT $TOKEN" \
+            "https://hub.docker.com/v2/repositories/alex360/starrupture-ptb/")
+
+          if [ "$STATUS" = "404" ]; then
+            echo "Repository not found, creating..."
+            curl -s -H "Authorization: JWT $TOKEN" \
+              -H "Content-Type: application/json" \
+              -X POST https://hub.docker.com/v2/repositories/ \
+              -d '{"namespace":"alex360","name":"starrupture-ptb","is_private":false,"description":"StarRupture PTB Dedicated Server (Docker)"}'
+            echo "Repository created."
+          else
+            echo "Repository already exists (HTTP $STATUS)."
+          fi
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v5
         with:
