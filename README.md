@@ -2,6 +2,7 @@
 
 ## Description
 Docker container for hosting a **Public Test Branch (PTB)** dedicated server for [StarRupture](https://starrupture-game.com/).
+Forked from [rhavinx/starrupture](https://github.com/rhavinx/starrupture).
 This image downloads the PTB version of the server via SteamCMD using the `-beta public_test_branch` flag.
 Currently the game server requires an internet connection.
 
