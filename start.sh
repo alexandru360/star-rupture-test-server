@@ -5,8 +5,8 @@ GAMENAME="StarRupture PTB"
 README_URL="https://github.com/alexandru360/star-rupture-test-server/blob/main/README.md"
 
 # Relative to $SERVERHOME
-BINARY=StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.exe
-PDB=StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.pdb
+BINARY=StarRupture/Binaries/Win64/StarRuptureServerEOS.exe
+PDB=StarRupture/Binaries/Win64/StarRuptureServerEOS.pdb
 
 GAMEBASE=StarRupture
 GAMEBASEDIR=${GAMEBASE}/Saved
