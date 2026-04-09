@@ -33,7 +33,7 @@ FORCE_ADMIN_CHANGE="${FORCE_ADMIN_CHANGE:-0}"
 FORCE_PLAYER_CHANGE="${FORCE_PLAYER_CHANGE:-0}"
 REMOVE_SERVER_FILES="${REMOVE_SERVER_FILES:-0}"
 BACKUP_SETTINGS="${BACKUP_SETTINGS:-1}"
-BETA_BRANCH="${BETA_BRANCH:-public_test_branch}"
+BETA_BRANCH="${BETA_BRANCH:-}"
 
 if ! [[ "${PUID}" =~ ^[0-9]+$ ]] || ! [[ "${PGID}" =~ ^[0-9]+$ ]]; then
   echo -e "${ERR}PUID and PGID must be numeric (got PUID='${PUID}', PGID='${PGID}')${NC}"
