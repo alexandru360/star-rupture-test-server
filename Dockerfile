@@ -1,8 +1,8 @@
 FROM teejo75/steamcmd-wine
 
-LABEL org.opencontainers.image.authors="alex360"
-LABEL org.opencontainers.image.source="https://github.com/alexandru360/star-rupture-test-server"
-LABEL org.opencontainers.image.description="StarRupture Public Test Branch (PTB) Dedicated Server"
+LABEL org.opencontainers.image.authors="RhavinX"
+LABEL org.opencontainers.image.source="https://github.com/RhavinX/starrupture"
+LABEL org.opencontainers.image.description="StarRupture Dedicated Server"
 
 ENV SERVERHOME="${HOMEDIR}/starrupture/server"
 ENV GAMEDATA="${HOMEDIR}/starrupture/data"

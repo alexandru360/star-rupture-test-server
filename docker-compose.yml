@@ -1,14 +1,13 @@
 services:
-  starrupture-ptb:
-    image: alex360/starrupture-ptb:latest
-    #image: ghcr.io/alexandru360/starrupture-ptb:latest # Alternate location
-    container_name: starrupture-ptb
+  starrupture:
+    image: rhavinx/starrupture:latest
+    #image: ghcr.io/rhavinx/starrupture:latest # Alternate location
+    container_name: starrupture
     environment:
       TZ: "UTC"
       SKIP_UPDATE: "0"
       ENABLE_LOG: "1"
       GAME_PORT: "7777"
-      BETA_BRANCH: ""
       # ADMIN_PASSWORD: ""
       # PLAYER_PASSWORD: ""
       # FORCE_CHANGE_ADMIN: "0"
