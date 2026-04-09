@@ -1,8 +1,8 @@
 #!/bin/bash
 
 APPID=3809400
-GAMENAME="StarRupture PTB"
-README_URL="https://github.com/alexandru360/star-rupture-test-server/blob/main/README.md"
+GAMENAME="StarRupture"
+README_URL="https://github.com/rhavinx/starrupture/blob/main/README.md"
 
 # Relative to $SERVERHOME
 BINARY=StarRupture/Binaries/Win64/StarRuptureServerEOS.exe
@@ -33,7 +33,6 @@ FORCE_ADMIN_CHANGE="${FORCE_ADMIN_CHANGE:-0}"
 FORCE_PLAYER_CHANGE="${FORCE_PLAYER_CHANGE:-0}"
 REMOVE_SERVER_FILES="${REMOVE_SERVER_FILES:-0}"
 BACKUP_SETTINGS="${BACKUP_SETTINGS:-1}"
-BETA_BRANCH="${BETA_BRANCH:-}"
 
 if ! [[ "${PUID}" =~ ^[0-9]+$ ]] || ! [[ "${PGID}" =~ ^[0-9]+$ ]]; then
   echo -e "${ERR}PUID and PGID must be numeric (got PUID='${PUID}', PGID='${PGID}')${NC}"
@@ -70,7 +69,6 @@ Container Settings:
  REMOVE_PDB:              $(if [[ "${REMOVE_PDB}" == "0" ]]; then echo -e "${WARN}0 WARNING: PDB file is +2gb and is not necessary unless you need to debug the server binary.${NC}"; else echo -e "${INFO}1${NC}"; fi)
  REMOVE_SERVER_FILES:     $(if [[ "${REMOVE_SERVER_FILES}" == "1" ]]; then echo -e "${WARN}1${NC} ${HILITE}!! UNSET FOR NEXT LAUNCH !!${NC}"; else echo -e "${INFO}0${NC}"; fi)
  BACKUP_SETTINGS:         $(if [[ "${BACKUP_SETTINGS}" == "0" ]]; then echo -e "${WARN}0 WARNING: Server settings and saves will not be backed up on shutdown.${NC}"; else echo -e "${INFO}1${NC}"; fi)
- BETA_BRANCH:             ${INFO}${BETA_BRANCH}${NC}
  SERVERHOME:              ${INFO}${SERVERHOME}${NC}
  GAMEDATA:                ${INFO}${GAMEDATA}${NC}
  
@@ -114,12 +112,8 @@ term_handler() {
 trap 'term_handler' SIGTERM
 
 install_server() {
-	echo -e "${INFO}-> Installing / updating ${GAMENAME} dedicated server files in ${SERVERHOME} (beta: ${BETA_BRANCH})${NC}"
-	if [[ -n "${BETA_BRANCH}" ]]; then
-		gosu steam:steam ./steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ${SERVERHOME} +login anonymous +app_update ${APPID} -beta ${BETA_BRANCH} validate +quit
-	else
-		gosu steam:steam ./steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ${SERVERHOME} +login anonymous +app_update ${APPID} validate +quit
-	fi
+	echo -e "${INFO}-> Installing / updating ${GAMENAME} dedicated server files in ${SERVERHOME}${NC}"
+	gosu steam:steam ./steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir ${SERVERHOME} +login anonymous +app_update ${APPID} validate +quit
 }
 
 set_password_files() {
